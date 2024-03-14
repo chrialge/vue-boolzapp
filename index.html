@@ -118,9 +118,9 @@
                     <div class="emonji">
                         <a href="#"><i class="fa-regular fa-face-smile"></i></a>
                     </div>
-                    <form class="write-message grow-1" action="message" method="post">
-                        <input type="text" placeholder="Scrivi un messaggio">
-                    </form>
+                    <div class="write-message grow-1" >
+                        <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="addMessage(contactNumber)">
+                    </div>
                     <div class="vocal-message">
                         <a href="#"><i class="fa-solid fa-microphone"></i></a> 
                     </div>

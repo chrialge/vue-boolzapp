@@ -3,7 +3,7 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
-            
+            newMessage: '',
             contactNumber: 0,
             contacts: [
                 {
@@ -138,6 +138,31 @@ createApp({
             this.contactNumber = contactId
             console.log(this.contactNumber)
 
+        },
+        addMessage(index){
+            console.log(index)
+            const message = this.newMessage
+
+            // variabili per ottenere la data odierna
+            const data = new Date();
+            let gg, mm, aaaa;
+            gg = data.getDate() + "/";
+            mm = data.getMonth() + 1 + "/";
+            aaaa = data.getFullYear();
+            const date = gg + mm + aaaa
+
+            // variabili per ottenere l orario odierna
+            let Hh, Mm, Ss;
+            Hh = data.getHours() + ":";
+            Mm = data.getMinutes() + ":";
+            Ss = data.getSeconds()
+            const time = Hh + Mm + Ss
+            console.log(message, date, time)
+
+            this.contacts[index].messages.push({date: date + time, message: message, status: 'sent'})
+            console.log(this.contacts[index].messages)
+
+            this.newMessage = ''
         }
     }
 }).mount('#container')
