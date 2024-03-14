@@ -3,6 +3,8 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
+            
+            contactNumber: 0,
             contacts: [
                 {
                     name: 'Michele',
@@ -130,8 +132,12 @@ createApp({
         }
     },
     methods:{
+
         conversation(contactId){
-            console.log(contactId)
+            console.log(this.contacts[contactId])
+            this.contactNumber = contactId
+            console.log(this.contactNumber)
+
         }
     }
 }).mount('#container')

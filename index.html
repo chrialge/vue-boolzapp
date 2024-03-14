@@ -78,10 +78,10 @@
                 <div class="container-header d-flex">
                     <div class="left-header d-flex grow-1">
                         <div class="image-header">
-                            <img src="./assets/img/avatar_1.jpg" alt="">
+                            <img :src="'./assets' + contacts[contactNumber].avatar" alt="">
                         </div>
                         <div class="info header">
-                            <h4>Michele</h4>
+                            <h4>{{contacts[contactNumber].name}}</h4>
                             <span>Ultimo accesso oggi alle 16:26</span>
                         </div>
                     </div>
@@ -96,8 +96,8 @@
 
             <!-- /#site-main -->
             <main id="site-main">
-                <div class="container-messages" v-for="contact in contacts">
-                    <div v-for="messageData in contact.messages" class="message posi-rela" :class="{'message-sent': messageData.status === 'sent',  'message-arrived': messageData.status === 'received'}" >
+                <div class="container-messages">
+                    <div v-for="messageData in contacts[contactNumber].messages" class="message posi-rela" :class="{'message-sent': messageData.status === 'sent',  'message-arrived': messageData.status === 'received'}" >
                         <p>
                             {{messageData.message}}
                         </p>
