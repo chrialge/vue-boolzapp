@@ -96,27 +96,10 @@
 
             <!-- /#site-main -->
             <main id="site-main">
-                <div class="container-messages">
-                    <div class="message message-sent posi-rela">
+                <div class="container-messages" v-for="contact in contacts">
+                    <div v-for="messageData in contact.messages" class="message posi-rela" :class="{'message-sent': messageData.status === 'sent'}"  :class="{message-arrived: messageData.status === 'received' }">
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                            Debitis, voluptas accusantium? Error quod quisquam voluptas 
-                            fuga cupiditate exercitationem sequi ratione dolorum modi 
-                            cumque sit optio distinctio voluptatibus, facere rem nesciunt!
-                        </p>
-                        <div class="drowdown">
-                            <a href="#"><i class="fa-solid fa-chevron-down"></i></a>
-                        </div>
-                        <div class="time-message posi-abso">
-                            <span>16:13</span>
-                        </div>
-                    </div>
-                    <div class="message message-arrived posi-rela">
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                            Debitis, voluptas accusantium? Error quod quisquam voluptas 
-                            fuga cupiditate exercitationem sequi ratione dolorum modi 
-                            cumque sit optio distinctio voluptatibus, facere rem nesciunt!
+                            {{messageData.message}}
                         </p>
                         <div class="drowdown">
                             <a href="#"><i class="fa-solid fa-chevron-down"></i></a>
