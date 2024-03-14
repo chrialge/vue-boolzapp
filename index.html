@@ -46,14 +46,14 @@
             </div>
             <div class="contacts">
                 <ul>
-                    <!-- first contact -->
-                    <li>
+                    <!-- contact -->
+                    <li v-for="contact in contacts">
                         <div class="contact d-flex posi-rela">
                             <div class="contact-image">
-                                <img src="./assets/img/avatar_1.jpg" alt="">
+                                <img :src="'./assets' + contact.avatar" alt="">
                             </div>
                             <div class="contact-info">
-                                <h4>Michele</h4>
+                                <h4>{{contact.name}}</h4>
                                 <span>Lorem ipsum dolor sit amet.</span>
                                 <div class="time">
                                     <span>16:15</span>
@@ -61,126 +61,7 @@
                             </div>
                         </div>
                     </li>
-                    <!-- /first contact -->
-
-                    <!-- second contact -->
-                    <li>
-                        <div class="contact d-flex posi-rela">
-                            <div class="contact-image">
-                                <img src="./assets/img/avatar_2.jpg" alt="">
-                            </div>
-                            <div class="contact-info">
-                                <h4>Fabio</h4>
-                                <span>Lorem ipsum dolor sit amet.</span>
-                                <div class="time">
-                                    <span>16:05</span>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <!-- /second contact -->
-
-                    <!-- third contact -->
-                    <li>
-                        <div class="contact d-flex posi-rela">
-                            <div class="contact-image">
-                                <img src="./assets/img/avatar_3.jpg" alt="">
-                            </div>
-                            <div class="contact-info">
-                                <h4>Samuele</h4>
-                                <span>Lorem ipsum dolor sit amet.</span>
-                                <div class="time">
-                                    <span>16:03</span>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <!-- /third contact -->
-
-                    <!-- four contact -->
-                    <li>
-                        <div class="contact d-flex posi-rela">
-                            <div class="contact-image">
-                                <img src="./assets/img/avatar_4.jpg" alt="">
-                            </div>
-                            <div class="contact-info">
-                                <h4>Alessandro B.</h4>
-                                <span>Lorem ipsum dolor sit amet.</span>
-                                <div class="time">
-                                    <span>15:50</span>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <!-- /four contact -->
-
-                    <!-- five contact -->
-                    <li>
-                        <div class="contact d-flex posi-rela">
-                            <div class="contact-image">
-                                <img src="./assets/img/avatar_5.jpg" alt="">
-                            </div>
-                            <div class="contact-info">
-                                <h4>Alessandro L.</h4>
-                                <span>Lorem ipsum dolor sit amet.</span>
-                                <div class="time">
-                                    <span>15:45</span>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <!-- /five contact -->
-
-                    <!-- six contact -->
-                    <li>
-                        <div class="contact d-flex posi-rela">
-                            <div class="contact-image">
-                                <img src="./assets/img/avatar_6.jpg" alt="">
-                            </div>
-                            <div class="contact-info">
-                                <h4>Alice</h4>
-                                <span>Lorem ipsum dolor sit amet.</span>
-                                <div class="time">
-                                    <span>15:30</span>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <!-- six contact -->
-                    
-                    <!-- seven contact -->
-                    <li>
-                        <div class="contact d-flex posi-rela">
-                            <div class="contact-image">
-                                <img src="./assets/img/avatar_7.jpg" alt="">
-                            </div>
-                            <div class="contact-info">
-                                <h4>Christian</h4>
-                                <span>Lorem ipsum dolor sit amet.</span>
-                                <div class="time">
-                                    <span>13:15</span>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <!-- /seven contact -->
-
-                    <!-- eight contact -->
-                    <li>
-                        <div class="contact d-flex posi-rela">
-                            <div class="contact-image">
-                                <img src="./assets/img/avatar_1.jpg" alt="">
-                            </div>
-                            <div class="contact-info">
-                                <h4>Michele P.</h4>
-                                <span>Lorem ipsum dolor sit amet.</span>
-                                <div class="time">
-                                    <span>12:15</span>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <!-- /eight contact -->
+                    <!-- contact -->
 
                 </ul>
                 
