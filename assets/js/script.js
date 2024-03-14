@@ -3,6 +3,7 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
+            time: 0,
             newMessage: '',
             contactNumber: 0,
             contacts: [
@@ -132,17 +133,35 @@ createApp({
         }
     },
     methods:{
-
+        /**
+         * funzione che prende al click l'index 
+         * @param {number} contactId l'index del contatto selezionato
+         */
         conversation(contactId){
             console.log(this.contacts[contactId])
             this.contactNumber = contactId
             console.log(this.contactNumber)
-
         },
+        /**
+         * funzione che aggiunge un messaggio
+         * @param {number} index del contatto
+         */
         addMessage(index){
             console.log(index)
             const message = this.newMessage
+            const status = 'sent'
+            this.generateMessage(message, index, status)
+            this.startTimeMessageRespond(message, index, status)
 
+            this.newMessage = ''
+        },
+        /**
+         * funzione che genera il messaggio
+         * @param {string} message il messaggio che deve essere inserito
+         * @param {number} index del contatto
+         * @param {string} status se e un messaggio inviato o mandato
+         */
+        generateMessage(message, index, status){
             // variabili per ottenere la data odierna
             const data = new Date();
             let gg, mm, aaaa;
@@ -159,10 +178,41 @@ createApp({
             const time = Hh + Mm + Ss
             console.log(message, date, time)
 
-            this.contacts[index].messages.push({date: date + time, message: message, status: 'sent'})
-            console.log(this.contacts[index].messages)
-
-            this.newMessage = ''
+            this.contacts[index].messages.push({date: date + time, message: message, status: status})
+            console.log(this.contacts[index].messages)    
+        },
+        /**
+         * funzione che parte dopo un secondo che genera il messaggio di risposta
+         * @param {string} message recupero il messaggio che poi cambiera
+         * @param {number} index recupero per selezionare il giusto contatto
+         * @param {string} status recupero lo status che poi cambiera
+         */
+        startTimeMessageRespond(message, index, status){
+            this.time = setInterval(()=>{
+                this.messageRespond(message, index, status)
+            },1000)
+        },
+        /**
+         * funzione che stoppa il messaggio di risposta se no li genera all'infinito
+         */
+        stopTimeMessageRespond(){
+            clearInterval(this.time)
+        },
+        /**
+         * funzione per il messaggio di risposta
+         * @param {string} message messaggio cambiera in ok
+         * @param {number} index mi serve per selezionare il giusto contatto
+         * @param {string} status status cambiera in 'received'
+         */
+        messageRespond(message, index, status){
+            message = 'ok'
+            status = 'received'
+            this.generateMessage(message, index, status)
+            console.log(this.time)
+            if(this.time >= 4){
+                this.stopTimeMessageRespond()
+            }
         }
+
     }
 }).mount('#container')
