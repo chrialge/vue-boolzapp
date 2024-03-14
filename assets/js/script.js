@@ -128,5 +128,10 @@ createApp({
                 },
             ]    
         }
+    },
+    methods:{
+        conversation(contactId){
+            console.log(contactId)
+        }
     }
 }).mount('#container')

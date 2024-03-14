@@ -47,7 +47,7 @@
             <div class="contacts">
                 <ul>
                     <!-- contact -->
-                    <li v-for="contact in contacts">
+                    <li v-for="(contact, index) in contacts" @click="conversation(index)">
                         <div class="contact d-flex posi-rela">
                             <div class="contact-image">
                                 <img :src="'./assets' + contact.avatar" alt="">
@@ -97,7 +97,7 @@
             <!-- /#site-main -->
             <main id="site-main">
                 <div class="container-messages" v-for="contact in contacts">
-                    <div v-for="messageData in contact.messages" class="message posi-rela" :class="{'message-sent': messageData.status === 'sent'}"  :class="{message-arrived: messageData.status === 'received' }">
+                    <div v-for="messageData in contact.messages" class="message posi-rela" :class="{'message-sent': messageData.status === 'sent',  'message-arrived': messageData.status === 'received'}" >
                         <p>
                             {{messageData.message}}
                         </p>
