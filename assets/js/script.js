@@ -3,6 +3,7 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
+            searchContact: '',
             time: 0,
             newMessage: '',
             contactNumber: 0,
@@ -142,6 +143,7 @@ createApp({
             this.contactNumber = contactId
             console.log(this.contactNumber)
         },
+
         /**
          * funzione che aggiunge un messaggio
          * @param {number} index del contatto
@@ -155,6 +157,7 @@ createApp({
 
             this.newMessage = ''
         },
+
         /**
          * funzione che genera il messaggio
          * @param {string} message il messaggio che deve essere inserito
@@ -178,9 +181,10 @@ createApp({
             const time = Hh + Mm + Ss
             console.log(message, date, time)
 
-            this.contacts[index].messages.push({date: date + time, message: message, status: status})
+            this.contacts[index].messages.push({date: date +" "+ time, message: message, status: status})
             console.log(this.contacts[index].messages)    
         },
+
         /**
          * funzione che parte dopo un secondo che genera il messaggio di risposta
          * @param {string} message recupero il messaggio che poi cambiera
@@ -192,12 +196,14 @@ createApp({
                 this.messageRespond(message, index, status)
             },1000)
         },
+
         /**
          * funzione che stoppa il messaggio di risposta se no li genera all'infinito
          */
         stopTimeMessageRespond(){
             clearInterval(this.time)
         },
+
         /**
          * funzione per il messaggio di risposta
          * @param {string} message messaggio cambiera in ok
@@ -212,7 +218,37 @@ createApp({
             if(this.time >= 4){
                 this.stopTimeMessageRespond()
             }
-        }
+        },
+        contactsSearch(){
+            console.log(this.searchContact)
+            if(this.searchContact.lenght > 1){
+                
+            }
+        },
+        dataM(){
+            return 'ciao';
+        },
+        dataMessage(index, contactid){
+        
+        
+        let timeMessage = (this.contacts[contactid].messages[index].date);
+        
+        timeMessage = timeMessage.split(' ')
+        
+        timeMessage = timeMessage[1]
+        
+        timeMessage = timeMessage.split(':')
+        
+        timeMessage = timeMessage[0] + ':'+timeMessage[1]
+        return timeMessage
+        },
+
+
+    },
+    mounted(){
+        this.contactsSearch();
+        
+        
 
     }
 }).mount('#container')
