@@ -221,13 +221,39 @@ createApp({
         },
         contactsSearch(){
             console.log(this.searchContact)
-            if(this.searchContact.lenght > 1){
+            if(this.searchContact.length > 1){
+                console.log('ciao')
+               const possibleContants = this.contacts.map((contact) =>{
+                   return contact.name.toLowerCase()
+               })
+               console.log(possibleContants)
+               function filterItems(arr, query) {
+                return arr.filter((el) => el.toLowerCase().includes(query.toLowerCase()));
+              }
+              console.log(filterItems(possibleContants, this.searchContact))
+
+
+
+            //   console.log(filterItems(fruits, "ap")); // ['apple', 'grapes']
+                // function possibleContant(contact){
+                //     return contact.name = contact
+                // }
+                // console.log(this.contacts.find(possibleContant))
                 
+                // console.log(this.searchContact, possibleContant(this.searchContact))
+                // const result = this.contacts.find((name) => name === this.searchContact)
+                // console.log(result)
             }
+            
         },
-        dataM(){
-            return 'ciao';
-        },
+
+
+        /**
+         * funzione che assegna l'ora giusta dei messaggi 
+         * @param {number} index l'indice del messaggio
+         * @param {number} contactid l'indice del contatto
+         * @returns hours example "16:30"
+         */
         dataMessage(index, contactid){
         
         
