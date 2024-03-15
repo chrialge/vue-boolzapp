@@ -103,6 +103,10 @@
                         </p>
                         <div class="drowdown">
                             <a href="#"><i class="fa-solid fa-chevron-down"></i></a>
+                            <ul class="option-message posi-abso">
+                                <li><a href="#">Info messaggio</a></li>
+                                <li><a href="">Cancella messaggio</a></li>
+                            </ul>
                         </div>
                         <div class="time-message posi-abso">
                             <span>{{dataMessage(index, contactNumber)}}</span>
@@ -117,6 +121,16 @@
                 <div class="container-metodology-message d-flex">
                     <div class="emonji">
                         <a href="#"><i class="fa-regular fa-face-smile"></i></a>
+                        <ul class="posi-abso d-flex">
+                            <li><a href="#">😊</a></li>
+                            <li><a href="#">😂</a></li>
+                            <li><a href="#">😘</a></li>
+                            <li><a href="#">👍</a></li>
+                            <li><a href="#">🤞</a></li>
+                            <li><a href="#">👌</a></li>
+                            <li><a href="#">😶‍🌫️</a></li>
+                            <li><a href="#">⛩️</a></li>
+                        </ul>
                     </div>
                     <div class="write-message grow-1" >
                         <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="addMessage(contactNumber)">
