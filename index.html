@@ -47,7 +47,7 @@
             <div class="contacts">
                 <ul>
                     <!-- contact -->
-                    <li v-for="(contact, index) in contacts" @click="conversation(index)">
+                    <li v-for="(contact, index) in contacts" @click="conversation(index)" :class="{'visible-hidden': contact.visible == false}">
                         <div class="contact d-flex posi-rela">
                             <div class="contact-image">
                                 <img :src="'./assets' + contact.avatar" alt="">

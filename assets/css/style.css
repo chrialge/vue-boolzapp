@@ -319,3 +319,7 @@ input[type="search"]{
 
 }
 /* endmedia query max-width 540px */
+
+.visible-hidden{
+    display: none;
+}

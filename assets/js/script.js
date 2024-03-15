@@ -231,38 +231,58 @@ createApp({
             //CONSOLE.LOG PER LEGGERE IL VALORE DEL INPUT
             console.log(this.searchContact);
             // se la lunghezza della parola maggiore di 1
-            if (this.searchContact.length > 1) {
+            if (this.searchContact.length > 0) {
                 // prova se va
-                console.log("ciao");
+                // console.log("ciao");
                 
-                /**
-                 * //funzione che mi restituisce in questo caso solo gli oggetti che assomigliano  al   valore del input
-                 * @param {array} arr contacts
-                 * @param {*} query il valore di input
-                 * @returns gli oggetti che assomigliano al valore dell'input
-                 */
-                function filterItems(arr, query) {
-                    return arr.filter((el) =>
-                        el.name.toLowerCase().includes(query.toLowerCase())
-                    );
+                // /**
+                //  * //funzione che mi restituisce in questo caso solo gli oggetti che assomigliano  al   valore del input
+                //  * @param {array} arr contacts
+                //  * @param {*} query il valore di input
+                //  * @returns gli oggetti che assomigliano al valore dell'input
+                //  */
+                // function filterItems(arr, query) {
+                //     return arr.filter((el) =>
+                //         el.name.toLowerCase().includes(query.toLowerCase())
+                //     );
+                // }
+
+                // //costante di array dove racchiudere la funzione con i prametri -contatti -valoreinput
+                // const contactsArray = filterItems(
+                //     this.contacts,
+                //     this.searchContact
+                // );
+                // //prende tutti gli oggetti dentro all'array dei contatti che si assomiglia e li cambia visible
+                // contactsArray.forEach((element) => (element.visible = false));
+
+                // // stampare in console per vedere cosa ce dentro
+                // console.log(contactsArray);
+
+                // scrollo gli oggetti che assomiglia al valore dell'input
+                for (const key in this.contacts) {
+                    // costante per prendere i nomi dei contatti
+                    const nameContant = this.contacts[key].name.toLowerCase()
+                    //console di prova
+                    console.log(nameContant)
+                    //costasnte che cerca se i nomi dei contanti assomiglia all'input e dra valore true e false
+                    const visible = nameContant.includes(this.searchContact.toLowerCase())
+                    //cambiare il valore di visible in base al valore della costante precedente
+                    this.contacts[key].visible = visible
+                    
                 }
+                // console di prova
+                console.log(this.contacts)
 
-                //costante di array dove racchiudere la funzione con i prametri -contatti -valoreinput
-                const contactsArray = filterItems(
-                    this.contacts,
-                    this.searchContact
-                );
-                //prende tutti gli oggetti dentro all'array dei contatti che si assomiglia e li cambia visible
-                contactsArray.forEach((element) => (element.visible = false));
-
-                // stampare in console per vedere cosa ce dentro
-                console.log(contactsArray);
-
-                // PROVA
-                console.log(this.contacts.includes(this.searchContact));
-
+            }else{//altrimenti se la lunghezza della parola e di uno trasforma tutti i valori visible in true
+                for (const key in this.contacts) {
+                    this.contacts[key].visible = true
+                   
+                        
+                }
             }
+                
         },
+
 
         /**
          * funzione che assegna l'ora giusta dei messaggi
@@ -284,6 +304,8 @@ createApp({
         },
     },
     mounted() {
-        this.contactsSearch();
+        this.contactsSearch()
+        console.log(this.contacts)
+        
     },
 }).mount("#container");
