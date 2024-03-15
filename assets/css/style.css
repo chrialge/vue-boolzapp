@@ -365,7 +365,7 @@ body{
         
         & .emonji > ul{
             visibility: hidden;
-            top: -140px;
+            top: -110px;
             background-color: var(--boolzap-lighter);
             width: 150px;
             list-style: none;
