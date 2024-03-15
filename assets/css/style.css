@@ -282,6 +282,7 @@ body{
             & .drowdown > ul {
                 display: none;
                 width: 200px;
+                top: 20px;
                 right: 0;
                 background-color: var(--boolzap-lighter);
                 list-style: none;
