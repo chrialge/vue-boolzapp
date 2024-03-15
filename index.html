@@ -104,11 +104,12 @@
                         <div class="drowdown">
                             <a href="#"><i class="fa-solid fa-chevron-down"></i></a>
                             <ul class="option-message posi-abso">
-                                <li><a href="#">Info messaggio</a></li>
-                                <li><a href="">Cancella messaggio</a></li>
+                                <li><a href="#" >Info messaggio</a></li>
+                                <li><a href="#" @click="removeMessage(index,contactNumber)">Cancella messaggio</a></li>
                             </ul>
                         </div>
                         <div class="time-message posi-abso">
+                            <span>{{dateMessage(index, contactNumber)}}</span>
                             <span>{{dataMessage(index, contactNumber)}}</span>
                         </div>
                     </div>
@@ -122,14 +123,7 @@
                     <div class="emonji">
                         <a href="#"><i class="fa-regular fa-face-smile"></i></a>
                         <ul class="posi-abso d-flex">
-                            <li><a href="#">😊</a></li>
-                            <li><a href="#">😂</a></li>
-                            <li><a href="#">😘</a></li>
-                            <li><a href="#">👍</a></li>
-                            <li><a href="#">🤞</a></li>
-                            <li><a href="#">👌</a></li>
-                            <li><a href="#">😶‍🌫️</a></li>
-                            <li><a href="#">⛩️</a></li>
+                            <li v-for="(emonji, index) in emonjeis"><a href="#" @click="insertValue(index)">{{emonji}}</a></li>
                         </ul>
                     </div>
                     <div class="write-message grow-1" >

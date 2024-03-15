@@ -263,6 +263,10 @@ body{
                 right: 5px;
                 bottom: 10px;
                 color: var(--boolzap-text-gray);
+                
+                > span{
+                    padding-right: 5px;
+                }
             }
             
             /* dropdown */

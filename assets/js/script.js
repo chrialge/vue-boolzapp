@@ -7,6 +7,16 @@ createApp({
             time: 0,
             newMessage: "",
             contactNumber: 0,
+            emonjeis:[
+                '😊',
+                '😂',
+                '😘',
+                '👍',
+                '🤞',
+                '👌',
+                '😶‍🌫️',
+                '⛩️',
+            ],
             contacts: [
                 {
                     name: "Michele",
@@ -260,6 +270,9 @@ createApp({
          * @returns hours example "16:30"
          */
         dataMessage(index, contactid) {
+            if(index < 0){
+                return data = ''
+            }
             let timeMessage = this.contacts[contactid].messages[index].date;
 
             timeMessage = timeMessage.split(" ");
@@ -271,6 +284,30 @@ createApp({
             timeMessage = timeMessage[0] + ":" + timeMessage[1];
             return timeMessage;
         },
+        removeMessage(index, contactid){
+
+            this.contacts[contactid].messages.splice(index, 1)
+
+        },
+        dateMessage(index, contactid){
+            if(index < 0){
+                return data = ''
+            }
+            let dateMessage = this.contacts[contactid].messages[index].date;
+
+            dateMessage = dateMessage.split(" ");
+
+            dateMessage = dateMessage[0];
+            return dateMessage
+        },
+        /**
+         * funzione per prendermi l'emonji selezionato e inserirlo nel input di scrittura di messaggio
+         * @param {number} index indice del emenji
+         */
+        insertValue(index){
+            console.log()
+            this.newMessage = this.newMessage + this.emonjeis[index]
+        }
     },
     mounted() {},
 }).mount("#container");
