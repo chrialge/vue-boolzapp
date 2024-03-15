@@ -29,12 +29,12 @@ createApp({
                             status: "sent",
                         },
                         {
-                            date: "10/01/2020 15:50:00",
+                            date: "11/01/2020 15:50:00",
                             message: "Ricordati di stendere i panni",
                             status: "sent",
                         },
                         {
-                            date: "10/01/2020 16:15:22",
+                            date: "12/01/2020 16:15:22",
                             message: "Tutto fatto!",
                             status: "received",
                         },
@@ -51,12 +51,12 @@ createApp({
                             status: "sent",
                         },
                         {
-                            date: "20/03/2020 16:30:55",
+                            date: "21/03/2020 16:30:55",
                             message: "Bene grazie! Stasera ci vediamo?",
                             status: "received",
                         },
                         {
-                            date: "20/03/2020 16:35:00",
+                            date: "22/03/2020 16:35:00",
                             message:
                                 "Mi piacerebbe ma devo andare a fare la spesa.",
                             status: "sent",
@@ -74,12 +74,12 @@ createApp({
                             status: "received",
                         },
                         {
-                            date: "28/03/2020 10:20:10",
+                            date: "29/03/2020 10:20:10",
                             message: "Sicuro di non aver sbagliato chat?",
                             status: "sent",
                         },
                         {
-                            date: "28/03/2020 16:15:22",
+                            date: "30/03/2020 16:15:22",
                             message: "Ah scusa!",
                             status: "received",
                         },
@@ -96,7 +96,7 @@ createApp({
                             status: "sent",
                         },
                         {
-                            date: "10/01/2020 15:50:00",
+                            date: "11/01/2020 15:50:00",
                             message: "Si, ma preferirei andare al cinema",
                             status: "received",
                         },
@@ -113,7 +113,7 @@ createApp({
                             status: "sent",
                         },
                         {
-                            date: "10/01/2020 15:50:00",
+                            date: "11/01/2020 15:50:00",
                             message: "Va bene, stasera la sento",
                             status: "received",
                         },
@@ -130,12 +130,12 @@ createApp({
                             status: "sent",
                         },
                         {
-                            date: "10/01/2020 15:50:00",
+                            date: "11/01/2020 15:50:00",
                             message: "Non ancora",
                             status: "received",
                         },
                         {
-                            date: "10/01/2020 15:51:00",
+                            date: "12/01/2020 15:51:00",
                             message: "Nessuna nuova, buona nuova",
                             status: "sent",
                         },
@@ -273,6 +273,7 @@ createApp({
             if(index < 0){
                 return data = ''
             }
+            console.log(index, contactid)
             let timeMessage = this.contacts[contactid].messages[index].date;
 
             timeMessage = timeMessage.split(" ");
@@ -307,7 +308,9 @@ createApp({
         insertValue(index){
             console.log()
             this.newMessage = this.newMessage + this.emonjeis[index]
-        }
+        },
+
+
     },
     mounted() {},
 }).mount("#container");
